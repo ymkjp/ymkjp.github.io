@@ -5,40 +5,27 @@
                 "ingredient": [
                     {
                         "name" : "Banana",
-                        "ammount" : "1600",
-                        "types" : [ "base" ]
+                        "ammount" : "2",
+                        "types" : [ "fruit" ]
                     },
                     {
-                        "long_name" : "Amphitheatre Pkwy",
-                        "short_name" : "Amphitheatre Pkwy",
-                        "types" : [ "route" ]
+                        "name" : "Strawberry",
+                        "ammount" : "5",
+                        "types" : [ "fruit" ]
                     },
                     {
-                        "long_name" : "Mountain View",
-                        "short_name" : "Mountain View",
-                        "types" : [ "locality", "political" ]
+                        "name" : "Soy milk",
+                        "ammount" : "200",
+                        "unit" : "ml",
+                        "types" : [ "base", "drink" ]
                     },
                     {
-                        "long_name" : "Santa Clara",
-                        "short_name" : "Santa Clara",
-                        "types" : [ "administrative_area_level_2", "political" ]
-                    },
-                    {
-                        "long_name" : "California",
-                        "short_name" : "CA",
-                        "types" : [ "administrative_area_level_1", "political" ]
-                    },
-                    {
-                        "long_name" : "United States",
-                        "short_name" : "US",
-                        "types" : [ "country", "political" ]
-                    },
-                    {
-                        "long_name" : "94043",
-                        "short_name" : "94043",
-                        "types" : [ "postal_code" ]
+                        "name" : "Soy milk",
+                        "ammount" : "1",
+                        "types" : [ "drink" ]
                     }
-                ]
+                ],
+                "people": 1
             },
             "formatted_title" : "Best smoothie recipe ever",
             "written_by" : "ymkjp",
