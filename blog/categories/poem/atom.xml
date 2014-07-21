@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Poem | Write test or die]]></title>
   <link href="http://ymkjp.github.io/blog/categories/poem/atom.xml" rel="self"/>
   <link href="http://ymkjp.github.io/"/>
-  <updated>2014-07-21T20:39:47+09:00</updated>
+  <updated>2014-07-21T20:44:17+09:00</updated>
   <id>http://ymkjp.github.io/</id>
   <author>
     <name><![CDATA[ymkjp]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[ドキュメントメンテナンス大作戦]]></title>
-    <link href="http://ymkjp.github.io/blog/2014/07/21/PracticeToMaintainDocumentation/"/>
+    <link href="http://ymkjp.github.io/blog/2014/07/21/practice-to-maintain-documentation/"/>
     <updated>2014-07-21T15:27:14+09:00</updated>
-    <id>http://ymkjp.github.io/blog/2014/07/21/PracticeToMaintainDocumentation</id>
+    <id>http://ymkjp.github.io/blog/2014/07/21/practice-to-maintain-documentation</id>
     <content type="html"><![CDATA[<p>同僚の<a href="https://twitter.com/ma3tk">まさたん (@ma3tk)</a> の<a href="http://ma3tk.hateblo.jp/entry/2014/07/21/013940">ドキュメントを常に残し続けることが大切な3つの理由 &ndash; anti-good.</a>というブログを読んで、「ドキュメント書くのはいいけどメンテナンスが大変だからその方策も書いておいたほうがいいのでは」と思ったので、自分で書いてみた。</p>
 
 <!--more-->
