@@ -6,9 +6,10 @@ comments: true
 categories: [poem,documentation]
 ---
 
-![Swagger](https://helloreverb.com/img/xswagger-hero.png.pagespeed.ic.RM2hi3MU7Z.png "ドキュメント自動生成ツールの例。APIを試してみることもできる")
-
 同僚の[まさたん (@ma3tk)](https://twitter.com/ma3tk) の[ドキュメントを常に残し続けることが大切な3つの理由 - anti-good.](http://ma3tk.hateblo.jp/entry/2014/07/21/013940)というブログを読んで、「ドキュメント書くのはいいけどメンテナンスが大変だからその方策も書いておいたほうがいいのでは」と思ったので、自分で書いてみた。
+<!--more-->
+
+![Swagger](https://helloreverb.com/img/xswagger-hero.png.pagespeed.ic.RM2hi3MU7Z.png "ドキュメント自動生成ツールの例。APIを試してみることもできる")
 
 
 ## Abstract
