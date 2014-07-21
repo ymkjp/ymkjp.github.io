@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Documentation | My Octopress Blog]]></title>
+  <link href="http://ymkjp.github.io/blog/categories/documentation/atom.xml" rel="self"/>
+  <link href="http://ymkjp.github.io/"/>
+  <updated>2014-07-21T19:16:59+09:00</updated>
+  <id>http://ymkjp.github.io/</id>
+  <author>
+    <name><![CDATA[Kenta YAMAMOTO]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[ドキュメントメンテナンス大作戦]]></title>
+    <link href="http://ymkjp.github.io/blog/2014/07/21/PracticeToMaintainDocumentation/"/>
+    <updated>2014-07-21T15:27:14+09:00</updated>
+    <id>http://ymkjp.github.io/blog/2014/07/21/PracticeToMaintainDocumentation</id>
+    <content type="html"><![CDATA[<p><img src="https://helloreverb.com/img/xswagger-hero.png.pagespeed.ic.RM2hi3MU7Z.png" title="ドキュメント自動生成ツールの例。APIを試してみることもできる" alt="Swagger" /></p>
+
+<p>同僚の<a href="https://twitter.com/ma3tk">まさたん (@ma3tk)</a> の<a href="http://ma3tk.hateblo.jp/entry/2014/07/21/013940">ドキュメントを常に残し続けることが大切な3つの理由 &ndash; anti-good.</a>というブログを読んで、「ドキュメント書くのはいいけどメンテナンスが大変だからその方策も書いておいたほうがいいのでは」と思ったので、自分で書いてみた。</p>
+
+<h2>Abstract</h2>
+
+<p>まず結論からだが、「変わりやすいものは管理しやすい場所に置く」というのが大原則になる。</p>
+
+<p>一口にドキュメントといってもいろいろあるので管理方法ごとに3種類に分けられる。</p>
+
+<table class="table compact hover order-column">
+<thead>
+    <tr>
+        <th>#</th>
+        <th>ドキュメント</th>
+        <th>可変性</th>
+        <th>メンテナンス方法</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>1</td>
+        <td>仕様</td>
+        <td>◎</td>
+        <td>ツールで自動化 + 人の手で補足</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>コードの意図</td>
+        <td>◎</td>
+        <td>ソースコード中のコメントに書く</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>設計思想</td>
+        <td>×</td>
+        <td>README, ブログ, ドキュメントシステム, ...etc</td>
+    </tr>
+</tbody>
+</table>
+
+
+<p>以下、それぞれのメンテナンス方法を掘り下げていく。</p>
+
+<h2>1. 仕様のドキュメントは自動化する</h2>
+
+<p>まず1つ目の仕様を書きまとめたドキュメントの場合はできるだけツールを使って自動生成して、人間がそれに補足する体制がいいと思う。</p>
+
+<p>APIの場合は冒頭にキャプチャを掲げたSwaggerなど既存のツールがそろっている。</p>
+
+<ul>
+<li>テストケースから自動生成できるツール <a href="http://blog.inouetakuya.info/entry/2013/10/20/132928">http://blog.inouetakuya.info/entry/2013/10/20/132928</a></li>
+<li>ソースコード中のコメントから自動生成するツール <a href="https://helloreverb.com/developers/swagger">https://helloreverb.com/developers/swagger</a></li>
+</ul>
+
+
+<p>APIでなく、アプリケーションの機能としての画面単位などでの仕様をドキュメントにまとめたい場合はE2Eのテストと連携させるのがよさそうだ。</p>
+
+<p>この種のドキュメントを欲しがるのがプロダクトマネジャの人だと勝手に推測するんだけど、彼彼女らに <a href="http://magazine.rubyist.net/?0042-FromCucumberToTurnip#l44">Turnip のテスト</a>などを読めるようになってもらうという手がある。</p>
+
+<p>例えばテストはこんな感じになっているが、非プログラマでも「書けなくても読むことはできる」ようになれそうという気がしないだろうか。</p>
+
+<p>```ruby</p>
+
+<h1>encoding: utf-8</h1>
+
+<h1>language: ja</h1>
+
+<p>機能: ポータル画面からログイン
+　シナリオ: トップページにアクセスしてログインする
+　　前提 hoge サイトにアクセスする
+　　もしトップページを表示する
+　　ならば 画面にようこそと表示されていること
+　　かつ id と password を入力する
+　　かつ サインインボタンをクリックする
+　　ならば 画面にユーザ名 testuser が表示されること
+```</p>
+
+<p>```ruby</p>
+
+<h1>encoding: utf-8</h1>
+
+<p>step &lsquo;hoge サイトにアクセスする&rsquo; do
+  Capybara.app_host = &ldquo;<a href="http://www.hoge.jp/">http://www.hoge.jp/</a>&rdquo;
+end</p>
+
+<p>step &lsquo;トップページを表示する&rsquo; do
+  visit &lsquo;/&rsquo;
+end</p>
+
+<p>step &lsquo;画面にようこそと表示されていること&rsquo; do</p>
+
+<h1>page.should have_content(&lsquo;ようこそ&rsquo;) # should はもう古い</h1>
+
+<p>  expect(page).to have_content(&lsquo;ようこそ&rsquo;)
+end</p>
+
+<p>step &lsquo;id と password を入力する&rsquo; do
+  fill_in &lsquo;session_login&rsquo;, :with => &lsquo;testuser&rsquo;
+  fill_in &lsquo;session_password&rsquo;, :with => &lsquo;password&rsquo;
+end</p>
+
+<p>step &lsquo;サインインボタンをクリックする&rsquo;
+  click_button &lsquo;サインイン&rsquo;
+end</p>
+
+<p>step &ldquo;画面にユーザ名 :user が表示されること&rdquo; do |user|
+  expect(page).to have_content(user)
+end
+```</p>
+
+<h2>2. コードの意図の説明はソースコードのコメントに書く</h2>
+
+<p>次にコードを書いた人に質問しなければ分からないようなことを減らすためのドキュメントだが、これはソースコード中のコメントに書けばいい。いわゆる「コメントはコードの意図を説明するべき」というやつ。</p>
+
+<p>例えば、どうして中東地域のユーザーの場合だけこのチェックメソッドが呼び出されているのかとか、このキャッシュが3600秒になっている理由はなぜなのかとか。</p>
+
+<p>実際の現場では先述の仕様のドキュメントがしっかりと作られていない場合もあると思うけど、そういう場合であればビジネスロジックレベルのことまでコメントに書いてしまっていいと思う。</p>
+
+<p>※ソースコードのコメントについては『<a href="http://www.amazon.co.jp/gp/product/4873115655?&amp;tag=m0b55-22">リーダブルコード</a>』や『<a href="http://www.amazon.co.jp/gp/product/B00JEYPPOE?tag=m0b55-22">Code Complete</a>』にも詳しく書いてあったはず</p>
+
+<h2>3. 設計思想を説明するドキュメント</h2>
+
+<p>設計思想というと大げさだが、巨大ライブラリから1回きりの作業手順書まで対象はいろいろ。共通の特徴としては「1度書かれるとあまり変更されないもの」。</p>
+
+<p>どういう要件があってこのライブラリは作られたのか、歴史的経緯や問題解決に至る経緯、その他ポエムなどもこの範疇に当てはまると思う。</p>
+
+<p>これはREADMEに書いてもいいし、ブログに書くのもいいし、Wikiでもいいし、社内ドキュメントシステムでもいい。</p>
+
+<p>メンテナブルなドキュメントにするポイントは、変更が多くなるであろう細かな仕様やコードに関する話は別途自動生成のドキュメントやソースコード中のコメントに委譲してしまうこと。</p>
+]]></content>
+  </entry>
+  
+</feed>
