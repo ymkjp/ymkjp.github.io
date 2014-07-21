@@ -9,7 +9,7 @@
   <meta name="author" content="ymkjp">
 
   
-  <meta name="description" content="同僚のまさたん (@ma3tk) のドキュメントを常に残し続けることが大切な3つの理由 &ndash; anti-good.というブログを読んで、「ドキュメント書くのはいいけどメンテナンスが大変だからその方策も書いておいたほうがいいのでは」と思ったので、自分で書いてみた。 Abstract &hellip;">
+  <meta name="description" content="同僚のまさたん (@ma3tk) のドキュメントを常に残し続けることが大切な3つの理由 &ndash; anti-good.というブログを読んで、「ドキュメント書くのはいいけどメンテナンスが大変だからその方策も書いておいたほうがいいのでは」と思ったので、自分で書いてみた。 ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -119,171 +119,14 @@
   </header>
 
 
-  <div class="entry-content"><p><img src="https://helloreverb.com/img/xswagger-hero.png.pagespeed.ic.RM2hi3MU7Z.png" title="ドキュメント自動生成ツールの例。APIを試してみることもできる" alt="Swagger" /></p>
+  <div class="entry-content"><p>同僚の<a href="https://twitter.com/ma3tk">まさたん (@ma3tk)</a> の<a href="http://ma3tk.hateblo.jp/entry/2014/07/21/013940">ドキュメントを常に残し続けることが大切な3つの理由 &ndash; anti-good.</a>というブログを読んで、「ドキュメント書くのはいいけどメンテナンスが大変だからその方策も書いておいたほうがいいのでは」と思ったので、自分で書いてみた。</p>
 
-<p>同僚の<a href="https://twitter.com/ma3tk">まさたん (@ma3tk)</a> の<a href="http://ma3tk.hateblo.jp/entry/2014/07/21/013940">ドキュメントを常に残し続けることが大切な3つの理由 &ndash; anti-good.</a>というブログを読んで、「ドキュメント書くのはいいけどメンテナンスが大変だからその方策も書いておいたほうがいいのでは」と思ったので、自分で書いてみた。</p>
-
-<h2>Abstract</h2>
-
-<p>まず結論からだが、「変わりやすいものは管理しやすい場所に置く」というのが大原則になる。</p>
-
-<p>一口にドキュメントといってもいろいろあるので管理方法ごとに3種類に分けられる。</p>
-
-<table class="table compact hover order-column">
-<thead>
-    <tr>
-        <th>#</th>
-        <th>ドキュメント</th>
-        <th>可変性</th>
-        <th>メンテナンス方法</th>
-    </tr>
-</thead>
-<tbody>
-    <tr>
-        <td>1</td>
-        <td>仕様</td>
-        <td>◎</td>
-        <td>ツールで自動化 + 人の手で補足</td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>コードの意図</td>
-        <td>◎</td>
-        <td>ソースコード中のコメントに書く</td>
-    </tr>
-    <tr>
-        <td>3</td>
-        <td>設計思想</td>
-        <td>×</td>
-        <td>README, ブログ, ドキュメントシステム, &#8230;etc</td>
-    </tr>
-</tbody>
-</table>
-
-
-<p>以下、それぞれのメンテナンス方法を掘り下げていく。</p>
-
-<h2>1. 仕様のドキュメントは自動化する</h2>
-
-<p>まず1つ目の仕様を書きまとめたドキュメントの場合はできるだけツールを使って自動生成して、人間がそれに補足する体制がいいと思う。</p>
-
-<p>APIの場合は冒頭にキャプチャを掲げたSwaggerなど既存のツールがそろっている。</p>
-
-<ul>
-<li>テストケースから自動生成できるツール <a href="http://blog.inouetakuya.info/entry/2013/10/20/132928">http://blog.inouetakuya.info/entry/2013/10/20/132928</a></li>
-<li>ソースコード中のコメントから自動生成するツール <a href="https://helloreverb.com/developers/swagger">https://helloreverb.com/developers/swagger</a></li>
-</ul>
-
-
-<p>APIでなく、アプリケーションの機能としての画面単位などでの仕様をドキュメントにまとめたい場合はE2Eのテストと連携させるのがよさそうだ。</p>
-
-<p>この種のドキュメントを欲しがるのがプロダクトマネジャの人だと勝手に推測するんだけど、彼彼女らに <a href="http://magazine.rubyist.net/?0042-FromCucumberToTurnip#l44">Turnip のテスト</a>などを読めるようになってもらうという手がある。</p>
-
-<p>例えばテストはこんな感じになっているが、非プログラマでも「書けなくても読むことはできる」ようになれそうという気がしないだろうか。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># encoding: utf-8</span>
-</span><span class='line'><span class="c1"># language: ja</span>
-</span><span class='line'><span class="err">機能</span><span class="p">:</span> <span class="err">ポータル画面からログイン</span>
-</span><span class='line'><span class="err">　シナリオ</span><span class="p">:</span> <span class="err">トップページにアクセスしてログインする</span>
-</span><span class='line'><span class="err">　　前提</span> <span class="n">hoge</span> <span class="err">サイトにアクセスする</span>
-</span><span class='line'><span class="err">　　もしトップページを表示する</span>
-</span><span class='line'><span class="err">　　ならば</span> <span class="err">画面にようこそと表示されていること</span>
-</span><span class='line'><span class="err">　　かつ</span> <span class="nb">id</span> <span class="err">と</span> <span class="n">password</span> <span class="err">を入力する</span>
-</span><span class='line'><span class="err">　　かつ</span> <span class="err">サインインボタンをクリックする</span>
-</span><span class='line'><span class="err">　　ならば</span> <span class="err">画面にユーザ名</span> <span class="n">testuser</span> <span class="err">が表示されること</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># encoding: utf-8</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">step</span> <span class="s1">&#39;hoge サイトにアクセスする&#39;</span> <span class="k">do</span>
-</span><span class='line'>  <span class="no">Capybara</span><span class="o">.</span><span class="n">app_host</span> <span class="o">=</span> <span class="s2">&quot;http://www.hoge.jp/&quot;</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">step</span> <span class="s1">&#39;トップページを表示する&#39;</span> <span class="k">do</span>
-</span><span class='line'>  <span class="n">visit</span> <span class="s1">&#39;/&#39;</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">step</span> <span class="s1">&#39;画面にようこそと表示されていること&#39;</span> <span class="k">do</span>
-</span><span class='line'><span class="c1">#  page.should have_content(&#39;ようこそ&#39;) # should はもう古い</span>
-</span><span class='line'>  <span class="n">expect</span><span class="p">(</span><span class="n">page</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">have_content</span><span class="p">(</span><span class="s1">&#39;ようこそ&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">step</span> <span class="s1">&#39;id と password を入力する&#39;</span> <span class="k">do</span>
-</span><span class='line'>  <span class="n">fill_in</span> <span class="s1">&#39;session_login&#39;</span><span class="p">,</span> <span class="ss">:with</span> <span class="o">=&gt;</span> <span class="s1">&#39;testuser&#39;</span>
-</span><span class='line'>  <span class="n">fill_in</span> <span class="s1">&#39;session_password&#39;</span><span class="p">,</span> <span class="ss">:with</span> <span class="o">=&gt;</span> <span class="s1">&#39;password&#39;</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">step</span> <span class="s1">&#39;サインインボタンをクリックする&#39;</span>
-</span><span class='line'>  <span class="n">click_button</span> <span class="s1">&#39;サインイン&#39;</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">step</span> <span class="s2">&quot;画面にユーザ名 :user が表示されること&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">user</span><span class="o">|</span>
-</span><span class='line'>  <span class="n">expect</span><span class="p">(</span><span class="n">page</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">have_content</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>2. コードの意図の説明はソースコードのコメントに書く</h2>
-
-<p>次にコードを書いた人に質問しなければ分からないようなことを減らすためのドキュメントだが、これはソースコード中のコメントに書けばいい。いわゆる「コメントはコードの意図を説明するべき」というやつ。</p>
-
-<p>例えば、どうして中東地域のユーザーの場合だけこのチェックメソッドが呼び出されているのかとか、このキャッシュが3600秒になっている理由はなぜなのかとか。</p>
-
-<p>実際の現場では先述の仕様のドキュメントがしっかりと作られていない場合もあると思うけど、そういう場合であればビジネスロジックレベルのことまでコメントに書いてしまっていいと思う。</p>
-
-<p>※ソースコードのコメントについては『<a href="http://www.amazon.co.jp/gp/product/4873115655?&amp;tag=m0b55-22">リーダブルコード</a>』や『<a href="http://www.amazon.co.jp/gp/product/B00JEYPPOE?tag=m0b55-22">Code Complete</a>』にも詳しく書いてあったはず</p>
-
-<h2>3. 設計思想を説明するドキュメント</h2>
-
-<p>設計思想というと大げさだが、巨大ライブラリから1回きりの作業手順書まで対象はいろいろ。共通の特徴としては「1度書かれるとあまり変更されないもの」。</p>
-
-<p>どういう要件があってこのライブラリは作られたのか、歴史的経緯や問題解決に至る経緯、その他ポエムなどもこの範疇に当てはまると思う。</p>
-
-<p>これはREADMEに書いてもいいし、ブログに書くのもいいし、Wikiでもいいし、社内ドキュメントシステムでもいい。</p>
-
-<p>メンテナブルなドキュメントにするポイントは、変更が多くなるであろう細かな仕様やコードに関する話は別途自動生成のドキュメントやソースコード中のコメントに委譲してしまうこと。</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/07/21/PracticeToMaintainDocumentation/">Read on &rarr;</a>
+    </footer>
   
 
 

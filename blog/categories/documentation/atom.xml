@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Documentation | Write test or die]]></title>
   <link href="http://ymkjp.github.io/blog/categories/documentation/atom.xml" rel="self"/>
   <link href="http://ymkjp.github.io/"/>
-  <updated>2014-07-21T19:46:47+09:00</updated>
+  <updated>2014-07-21T19:55:23+09:00</updated>
   <id>http://ymkjp.github.io/</id>
   <author>
     <name><![CDATA[ymkjp]]></name>
@@ -18,9 +18,12 @@
     <link href="http://ymkjp.github.io/blog/2014/07/21/PracticeToMaintainDocumentation/"/>
     <updated>2014-07-21T15:27:14+09:00</updated>
     <id>http://ymkjp.github.io/blog/2014/07/21/PracticeToMaintainDocumentation</id>
-    <content type="html"><![CDATA[<p><img src="https://helloreverb.com/img/xswagger-hero.png.pagespeed.ic.RM2hi3MU7Z.png" title="ドキュメント自動生成ツールの例。APIを試してみることもできる" alt="Swagger" /></p>
+    <content type="html"><![CDATA[<p>同僚の<a href="https://twitter.com/ma3tk">まさたん (@ma3tk)</a> の<a href="http://ma3tk.hateblo.jp/entry/2014/07/21/013940">ドキュメントを常に残し続けることが大切な3つの理由 &ndash; anti-good.</a>というブログを読んで、「ドキュメント書くのはいいけどメンテナンスが大変だからその方策も書いておいたほうがいいのでは」と思ったので、自分で書いてみた。</p>
 
-<p>同僚の<a href="https://twitter.com/ma3tk">まさたん (@ma3tk)</a> の<a href="http://ma3tk.hateblo.jp/entry/2014/07/21/013940">ドキュメントを常に残し続けることが大切な3つの理由 &ndash; anti-good.</a>というブログを読んで、「ドキュメント書くのはいいけどメンテナンスが大変だからその方策も書いておいたほうがいいのでは」と思ったので、自分で書いてみた。</p>
+<!--more-->
+
+
+<p><img src="https://helloreverb.com/img/xswagger-hero.png.pagespeed.ic.RM2hi3MU7Z.png" title="ドキュメント自動生成ツールの例。APIを試してみることもできる" alt="Swagger" /></p>
 
 <h2>Abstract</h2>
 
