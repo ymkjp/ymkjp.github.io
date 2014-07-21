@@ -4,7 +4,7 @@
   <title><![CDATA[Write test or die]]></title>
   <link href="http://ymkjp.github.io/atom.xml" rel="self"/>
   <link href="http://ymkjp.github.io/"/>
-  <updated>2014-07-21T19:55:23+09:00</updated>
+  <updated>2014-07-21T20:20:28+09:00</updated>
   <id>http://ymkjp.github.io/</id>
   <author>
     <name><![CDATA[ymkjp]]></name>
@@ -79,9 +79,9 @@
 
 <p>APIでなく、アプリケーションの機能としての画面単位などでの仕様をドキュメントにまとめたい場合はE2Eのテストと連携させるのがよさそうだ。</p>
 
-<p>この種のドキュメントを欲しがるのがプロダクトマネジャの人だと勝手に推測するんだけど、彼彼女らに <a href="http://magazine.rubyist.net/?0042-FromCucumberToTurnip#l44">Turnip のテスト</a>などを読めるようになってもらうという手がある。</p>
+<p>画面のキャプチャなどを使って自動生成はできそうだが、既存のツールは私は把握していない。</p>
 
-<p>例えばテストはこんな感じになっているが、非プログラマでも「書けなくても読むことはできる」ようになれそうという気がしないだろうか。</p>
+<p>奥の手としてはこの種のドキュメントを欲しがる人 (プロダクトマネジャの人だと勝手に推測するんだけど) にTurnipのテストなどを読めるようになってもらうという手がある。<a href="http://magazine.rubyist.net/?0042-FromCucumberToTurnip#l44">テストコード例</a>を引用すると下記のようになるが、これなら「書けなくとも読める」ようには&hellip;なりませんかね。</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -171,11 +171,11 @@
 
 <p>例えば、どうして中東地域のユーザーの場合だけこのチェックメソッドが呼び出されているのかとか、このキャッシュが3600秒になっている理由はなぜなのかとか。</p>
 
-<p>実際の現場では先述の仕様のドキュメントがしっかりと作られていない場合もあると思うけど、そういう場合であればビジネスロジックレベルのことまでコメントに書いてしまっていいと思う。</p>
+<p>実際の現場では先述の仕様のドキュメントがしっかりと作られていない場合もあるだろうが、そういう場合であればビジネスロジックレベルのことまでコメントに書いてしまっていいと思う。</p>
 
 <p>※ソースコードのコメントについては『<a href="http://www.amazon.co.jp/gp/product/4873115655?&amp;tag=m0b55-22">リーダブルコード</a>』や『<a href="http://www.amazon.co.jp/gp/product/B00JEYPPOE?tag=m0b55-22">Code Complete</a>』にも詳しく書いてあったはず</p>
 
-<h2>3. 設計思想を説明するドキュメント</h2>
+<h2>3. 設計思想を説明するドキュメントはimmutableに</h2>
 
 <p>設計思想というと大げさだが、巨大ライブラリから1回きりの作業手順書まで対象はいろいろ。共通の特徴としては「1度書かれるとあまり変更されないもの」。</p>
 
