@@ -5,6 +5,9 @@ root = true
 
 ; Use 2 spaces for indentation in all Ruby files
 
+[*]
+charset = utf-8
+
 [*.rb]
 indent_style = space
 indent_size = 2
