@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://ymkjp.github.io/sitemap.xml 
+Sitemap: http://blog.xn--nyqr7s4vc72p.com/sitemap.xml 
